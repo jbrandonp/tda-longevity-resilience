@@ -23,8 +23,9 @@ from config import RANDOM_SEED
 class TestFullPipeline:
     """End-to-end: data → TDA → ML → validation on 500 samples."""
 
+    @classmethod
     @pytest.fixture(scope="class")
-    def pipeline_data(self):
+    def pipeline_data(cls):
         ds = generate_synthetic_multimics(n_samples=500, topology_type="circle", noise=0.06, n_features=100)
         layers = {k: preprocess_omics(pd.DataFrame(v), method="standard")
                   for k, v in ds.items() if isinstance(v, np.ndarray) and v.ndim == 2}

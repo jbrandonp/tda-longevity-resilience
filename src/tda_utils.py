@@ -78,6 +78,10 @@ def compute_persistence_diagrams(
         return dgms
 
     # Compute distance matrix
+    if len(data) <= 1:
+        # Single sample: no meaningful persistence
+        return [np.empty((0, 2)) for _ in range(max_dim + 1)]
+
     if metric == "correlation":
         dist_vec = pdist(data, metric="correlation")
     else:
