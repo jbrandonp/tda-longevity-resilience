@@ -1,0 +1,9 @@
+#!/bin/bash
+# Binder postBuild script — installs the package and TDA dependencies
+set -e
+
+pip install -e ".[dev,bio,tda]"
+pip install ripser persim kmapper giotto-tda teaspoon
+
+# Pre-cache matplotlib font cache
+python -c "import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot"
