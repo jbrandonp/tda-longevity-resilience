@@ -104,22 +104,26 @@ python -m src.cli run --n-samples 200 --max-dim 2
 
 ```
 tda-longevity-resilience/
-├── src/                          # 14 source modules
-│   ├── __init__.py               # 50+ public functions exported
+├── src/                          # 18 source modules
+│   ├── __init__.py               # 60+ public functions exported
 │   ├── cli.py                    # Unified CLI (7 commands)
 │   ├── config.py                 # All constants, seeds, thresholds
 │   ├── data_utils.py             # Data loading, synthesis, integration
-│   ├── tda_utils.py              # Persistent homology, distances
+│   ├── tda_utils.py              # Persistent homology, distances, caching
 │   ├── features.py               # PI, PL, Betti transformers
 │   ├── ml_utils.py               # ML pipelines, SHAP, CV-safe features
 │   ├── mapper_utils.py           # Mapper graph, enrichment
 │   ├── aging_scores.py           # PhenoAge, DunedinPACE, acceleration
+│   ├── epigenetic_clocks.py      # Horvath (2013), GrimAge (2019) clocks
 │   ├── metrics.py                # Distance metrics (aitchison, etc.)
-│   ├── bio_enrichment.py         # GO/KEGG enrichment, GenAge
+│   ├── bio_enrichment.py         # GO/KEGG enrichment, GenAge, Fisher + FDR
 │   ├── validation.py             # Hold-out split, evaluation, reports
-│   ├── benchmark_utils.py        # Aging clock wrappers, comparisons
+│   ├── benchmark_utils.py        # Aging clock wrappers, benchmarks
+│   ├── topoae.py                 # Topological Autoencoder (Moor et al. 2020)
+│   ├── topo_gnn.py               # GCN on Mapper graphs with topological features
+│   ├── longitudinal.py           # Sliding window, Takens embedding, Dask
 │   ├── visualization.py          # Barcodes, diagrams, ROC curves
-│   ├── topo_format.py            # .topo file format (NPZ-based)
+│   ├── topo_format.py            # .topo file format (JSON-based, secure)
 │   └── logging_config.py         # Structured logging
 ├── tests/                        # 16 test files, 214 tests
 │   ├── test_quality.py           # 42 tests — 7 quality dimensions
@@ -215,10 +219,12 @@ pytest tests/ --cov=src    # With coverage report
 | [`glossary.md`](docs/glossary.md) | All TDA + biological terms defined |
 | [`references.md`](docs/references.md) | 17 annotated references (Horvath, Levine, Bubenik, Adams...) |
 | [`tutorials.md`](docs/tutorials.md) | Step-by-step code walkthroughs |
+| [`troubleshooting.md`](docs/troubleshooting.md) | 30 common errors + solutions |
 | [`api.md`](docs/api.md) | Complete module API reference |
+| [`deep_research_tda.md`](docs/deep_research_tda.md) | TDA state of the art 2024-2026 (24+ sources) |
 | [`data_sources.md`](docs/data_sources.md) | Dataset descriptions (GTEx, TCGA, InCHIANTI) |
 | [`installation.md`](docs/installation.md) | Conda, Docker, Binder, pip |
-| [`ROADMAP.md`](ROADMAP.md) | v1.1, v1.2, v2.0 milestones |
+| [`ROADMAP.md`](ROADMAP.md) | v1.1-v2.0 milestones |
 
 ---
 
@@ -243,7 +249,8 @@ pytest tests/ --cov=src    # With coverage report
   year         = {2026},
   publisher    = {GitHub},
   url          = {https://github.com/jbrandonp/tda-longevity-resilience},
-  note         = {214 tests, 14 modules, 16 test suites}
+  version      = {v1.0.0},
+  note         = {18 modules, 214 tests, 16 suites, 20 docs}
 }
 ```
 
