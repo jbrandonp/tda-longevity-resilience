@@ -238,7 +238,7 @@ pytest tests/ --cov=src    # With coverage report
 
 ```bibtex
 @software{tda_longevity_resilience_2026,
-  author       = {Palhano Machado, Brandon},
+  author       = {Palhano, Brandon},
   title        = {TDA-Longevity-Resilience: Topological Signatures of Longevity},
   year         = {2026},
   publisher    = {GitHub},
