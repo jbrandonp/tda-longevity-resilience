@@ -9,8 +9,8 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" /></a>
   <a href="#"><img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white" /></a>
   <a href="#"><img src="https://img.shields.io/badge/tests-214%20passed-brightgreen?style=flat-square&logo=pytest&logoColor=white" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/coverage-90%25-brightgreen?style=flat-square" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/code%20quality-A+%20(0%20bugs)-brightgreen?style=flat-square" /></a>
+    <a href="#"><img src="https://img.shields.io/badge/modules-26-blue?style=flat-square&logo=python&logoColor=white" /></a>
+    <a href="#"><img src="https://img.shields.io/badge/version-v1.1.0-blue?style=flat-square" /></a>
   <a href="#"><img src="https://img.shields.io/badge/docs-complete-informational?style=flat-square&logo=readthedocs&logoColor=white" /></a>
 </p>
 
