@@ -1,0 +1,42 @@
+# Build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Git
+.git/
+.gitignore
+
+# Data
+data/
+*.csv
+*.tsv
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Environment
+.env
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Tests
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Docs build
+site/
+
+# Large files
+*.pkl
+*.h5
+*.hdf5
