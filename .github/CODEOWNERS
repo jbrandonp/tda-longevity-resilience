@@ -1,0 +1,7 @@
+# Code owners — automatically requested for PR review
+# Order is important; the last matching pattern takes precedence
+
+*       @jbrandonp
+src/    @jbrandonp
+tests/  @jbrandonp
+docs/   @jbrandonp

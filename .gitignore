@@ -1,0 +1,45 @@
+# Data (sensitive/large)
+data/raw/
+data/processed/
+data/external/
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Environments
+.env
+.venv/
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# MLflow / W&B
+mlruns/
+wandb/
+
+# Persistence cache
+*.pkl.bak
+.cache/
+
+# Conda lock (keep base, regenerate lock)
+# environment.lock.yml is kept but not tracked as source

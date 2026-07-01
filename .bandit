@@ -1,0 +1,7 @@
+[bandit]
+exclude_dirs = tests,data,docs,.github,notebooks
+skips = B101,B301,B303,B311,B403
+# B101: assert used (intentional in tests/scientific code)
+# B301-B303: pickle (used for TDA diagram caching — audited)
+# B311: random not crypto (fixed seeds for reproducibility)
+# B403: pickle import (used for persistence diagram cache)

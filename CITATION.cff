@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "TDA-Longevity-Resilience: Topological Signatures of Extreme Longevity Resilience"
+authors:
+  - given-names: Brandon
+    family-names: Palhano Machado
+    orcid: "https://orcid.org/placeholder"
+repository-code: "https://github.com/jbrandonp/tda-longevity-resilience"
+url: "https://github.com/jbrandonp/tda-longevity-resilience"
+license: MIT
+version: 1.0.0
+date-released: 2026-07-01
+keywords:
+  - topological data analysis
+  - persistent homology
+  - multi-omics
+  - longevity
+  - resilience
+  - aging acceleration
+  - Mapper algorithm
+  - persistence images
+abstract: >
+  Apply persistent homology and the Mapper algorithm to multi-omics longevity data
+  to extract structural signatures of extreme resilience and compare them to
+  generational accelerated aging (Tian 2026 framework).

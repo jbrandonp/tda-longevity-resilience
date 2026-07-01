@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  jupyter:
+    build: .
+    container_name: tda-longevity
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+      - ./data:/app/data
+      - ./results:/app/results
+      - ./notebooks:/app/notebooks
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    restart: unless-stopped

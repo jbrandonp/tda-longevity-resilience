@@ -1,0 +1,25 @@
+# Snakemake configuration for TDA-Longevity-Resilience pipeline
+# Edit these values before running: snakemake -j4
+
+# ── Synthetic data generation ───────────────────────────────────────────────
+topology: "circle"       # circle, torus, figure8, sphere, noise
+n_samples: 200           # number of synthetic individuals
+n_features: 50           # features per omics layer
+noise: 0.05              # Gaussian noise standard deviation
+seed: 42                 # random seed for reproducibility
+
+# ── Persistence computation ─────────────────────────────────────────────────
+max_dim: 2               # maximum homology dimension
+metric: "euclidean"      # distance metric (euclidean, correlation, spearman, aitchison)
+threshold_quantile: 0.95 # Vietoris-Rips distance threshold
+
+# ── Mapper ──────────────────────────────────────────────────────────────────
+mapper_n_cubes: 15       # number of cover intervals
+mapper_overlap: 0.5       # overlap fraction (0.0 - 1.0)
+mapper_eps: 0.5           # DBSCAN epsilon
+mapper_min_samples: 5     # DBSCAN min_samples
+
+# ── ML ──────────────────────────────────────────────────────────────────────
+classifier: "random_forest"  # random_forest, svm, gradient_boosting
+cv_folds: 5              # cross-validation folds
+test_size: 0.2           # train/test split ratio
