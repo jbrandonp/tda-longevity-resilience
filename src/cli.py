@@ -57,21 +57,31 @@ def step_data(args):
         n_features=args.n_features,
     )
 
-    # Add simulated biomarkers for PhenoAge
+    # ── Bio-marker simulation for PhenoAge (Levine et al. 2018, Aging 10(4):573-591)
+    # Reference ranges from PhenoAge publication:
+    #   albumin 3.5-5.0 g/dL (mean 4.2, sd 0.35) — normal distribution
+    #   creatinine 0.5-1.2 mg/dL (mean 0.9, sd 0.25) — normal distribution  
+    #   glucose 70-110 mg/dL (mean 95, sd 15) — normal distribution
+    #   CRP 0-10 mg/L (median 1.5, lognormal) — lognormal distribution
+    #   lymphocytes 20-40% (mean 30, sd 7) — normal distribution
+    #   MCV 80-100 fL (mean 90, sd 5) — normal distribution
+    #   RDW 11.5-14.5% (mean 13, sd 5) — normal distribution
+    #   ALP 44-147 IU/L (mean 80, sd 30) — normal distribution
+    #   WBC 4-11 ×10³/µL (mean 7, sd 2) — lognormal distribution
     rng = np.random.default_rng(RANDOM_SEED)
     n = args.n_samples
     meta = ds["metadata"].copy()
-    meta["age"] = np.clip(rng.normal(65, 12, n), 30, 95).astype(int)  # chronological age
+    meta["age"] = np.clip(rng.normal(65, 12, n), 30, 95).astype(int)
     meta["sex"] = rng.binomial(1, 0.5, n)
     meta["albumin"] = np.clip(rng.normal(4.2, 0.35, n), 3.0, 5.5)
     meta["creatinine"] = np.clip(rng.normal(0.9, 0.25, n), 0.4, 2.0)
     meta["glucose"] = np.clip(rng.normal(95, 15, n), 60, 200)
-    meta["crp"] = np.clip(rng.lognormal(0.1, 0.8, n), 0.01, 10)
-    meta["lymph"] = np.clip(rng.normal(30, 8, n), 10, 60)
-    meta["mcv"] = np.clip(rng.normal(90, 5, n), 75, 105)
-    meta["rdw"] = np.clip(rng.normal(13.5, 1.2, n), 11, 18)
-    meta["alp"] = np.clip(rng.normal(70, 20, n), 30, 150)
-    meta["wbc"] = np.clip(rng.lognormal(1.8, 0.3, n) * 1000, 3000, 12000)
+    meta["crp"] = np.clip(rng.lognormal(np.log(1.5), 0.6, n), 0.01, 15)    # ref: median 1.5 mg/L
+    meta["lymph"] = np.clip(rng.normal(30, 7, n), 10, 55)
+    meta["mcv"] = np.clip(rng.normal(90, 5, n), 70, 110)
+    meta["rdw"] = np.clip(rng.normal(13, 5, n), 11, 20)
+    meta["alp"] = np.clip(rng.normal(80, 30, n), 30, 200)
+    meta["wbc"] = np.clip(rng.lognormal(np.log(7), 0.3, n), 2, 20)
 
     meta = assign_acceleration_group(meta)
     ds["metadata"] = meta
